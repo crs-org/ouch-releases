@@ -40,11 +40,8 @@ jobs:
     - name: build
       run: cargo install ouch --git https://github.com/ouch-org/ouch
 
-    - name: see path
-      run: echo $PATH
-
     - name: upload release artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ouch_Windows_x86_64
-        path: ouch/target/release/ouch
+        name: ouch_Windows_x86_64.exe
+        path: C:\Users\runneradmin\.cargo\bin\ouch.exe
