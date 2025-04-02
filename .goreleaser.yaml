@@ -9,10 +9,9 @@ before:
     - cargo fetch --locked
 
 builds:
-  tool: cross
-  command: build
-
   - builder: rust
+    command: build
+    tool: cross
     targets:
       - x86_64-unknown-linux-gnu
       - x86_64-apple-darwin
