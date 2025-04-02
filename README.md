@@ -18,13 +18,7 @@ cargo --version
 goreleaser --version
 ```
 
-2. install `zig`: https://ziglang.org/learn/getting-started
-
-```shell
-zig version
-```
-
-3. install `podman`: https://podman.io
+2. install `podman`: https://podman.io
 
 ```shell
 podman machine init
@@ -33,13 +27,13 @@ podman machine start
 podman version
 ```
 
-4. install `cross`: https://github.com/cross-rs/cross
+3. install `cross`: https://github.com/cross-rs/cross
 
 ```shell
 cross --version
 ```
 
-5. build `ouch` from the source code:
+4. build `ouch` from the source code:
 
 ```shell
 git clone https://github.com/ouch-org/ouch
