@@ -40,5 +40,5 @@ jobs:
     - name: upload release artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ouch
-        path: target/release/ouch
+        name: ouch_Windows_x86_64
+        path: ouch/target/release/ouch
