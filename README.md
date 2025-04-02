@@ -4,11 +4,17 @@ https://github.com/ouch-org/ouch does not have a fresh release yet, so let's bui
 
 ## installation
 
-1. install goreleaser: https://goreleaser.com/install/
+0. install rust: https://rustup.sh
 
-2. install zig: https://ziglang.org/learn/getting-started/
+1. install goreleaser: https://goreleaser.com/install
 
-3. build ouch
+2. install zig: https://ziglang.org/learn/getting-started
+
+3. install podman: https://podman.io
+
+4. install cross: https://github.com/cross-rs/cross
+
+5. build ouch
 
 ```shell
 git clone https://github.com/ouch-org/ouch
@@ -20,4 +26,4 @@ cd ouch
 goreleaser release --clean --snapshot
 ```
 
-Check out `dist` folder for built binaries.
+Check `dist` folder out to see built binaries.
