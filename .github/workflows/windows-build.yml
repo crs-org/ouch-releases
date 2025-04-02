@@ -20,7 +20,10 @@ jobs:
     
     steps:
     - name: rust version
-      run: rustup --version
+      run: rustc --version
+
+    - name: cargo version
+      run: cargo --version
         
     - name: clone ouch repository
       run: git clone https://github.com/ouch-org/ouch
