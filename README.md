@@ -1,5 +1,7 @@
 # ouch releases for different platforms using GoReleaser
 
+https://github.com/ouch-org/ouch does not have a release yet so let's build them by yourself
+
 ## installation
 
 1. install goreleaser: https://goreleaser.com/install/
