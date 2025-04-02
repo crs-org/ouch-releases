@@ -1,5 +1,7 @@
 # ouch releases for different platforms using GoReleaser
 
+[![windows-build](https://github.com/crs-org/ouch-releases/actions/workflows/windows-build.yml/badge.svg)](https://github.com/crs-org/ouch-releases/actions/workflows/windows-build.yml)
+
 https://github.com/ouch-org/ouch does not have a fresh release yet, so let's build it by yourself
 
 ## installation
