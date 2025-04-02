@@ -40,6 +40,9 @@ jobs:
     - name: build
       run: cd ouch && cargo build --release
 
+    - name: see results
+      run: ls -lh .
+
     - name: upload release artifact
       uses: actions/upload-artifact@v4
       with:
