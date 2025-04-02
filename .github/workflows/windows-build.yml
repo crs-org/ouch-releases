@@ -1,0 +1,23 @@
+name: windows-build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows x86_64
+            os: windows-2022
+
+    steps:
+    - name: clone ouch repository
+      run: git clone https://github.com/ouch-org/ouch
+    
+    - name: Build
+      run: cd ouch && cargo build --release
