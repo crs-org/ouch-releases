@@ -7,6 +7,10 @@ before:
     - rustup default stable
     - cargo fetch --locked
 
+env:
+  - CROSS_CONTAINER_ENGINE=podman
+  - CROSS_CONTAINER_OPTS=--platform=linux/amd64
+
 builds:
   - builder: rust
     command: build

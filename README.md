@@ -4,17 +4,42 @@ https://github.com/ouch-org/ouch does not have a fresh release yet, so let's bui
 
 ## installation
 
-0. install rust: https://rustup.sh
+0. install rust using `rustup`: https://rustup.sh
 
-1. install goreleaser: https://goreleaser.com/install
+```shell
+rustc --version
 
-2. install zig: https://ziglang.org/learn/getting-started
+cargo --version
+```
 
-3. install podman: https://podman.io
+1. install `goreleaser`: https://goreleaser.com/install
 
-4. install cross: https://github.com/cross-rs/cross
+```shell
+goreleaser --version
+```
 
-5. build ouch
+2. install `zig`: https://ziglang.org/learn/getting-started
+
+```shell
+zig version
+```
+
+3. install `podman`: https://podman.io
+
+```shell
+podman machine init
+podman machine start
+
+podman version
+```
+
+4. install `cross`: https://github.com/cross-rs/cross
+
+```shell
+cross --version
+```
+
+5. build `ouch` from the source code:
 
 ```shell
 git clone https://github.com/ouch-org/ouch
@@ -23,6 +48,10 @@ cp .goreleaser.yaml ouch/
 
 cd ouch
 
+# if on MacOS:
+rustup toolchain add stable-x86_64-unknown-linux-gnu --profile minimal --force-non-host
+
+# build
 goreleaser release --clean --snapshot
 ```
 
