@@ -21,3 +21,9 @@ jobs:
     
     - name: Build
       run: cd ouch && cargo build --release
+
+    - name: Upload release artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ouch
+        path: target/${{ matrix.BUILD_TARGET }}/ouch
