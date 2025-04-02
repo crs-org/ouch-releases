@@ -5,7 +5,6 @@ project_name: ouch
 before:
   hooks:
     - rustup default stable
-    - cargo install --locked cargo-zigbuild
     - cargo fetch --locked
 
 builds:
