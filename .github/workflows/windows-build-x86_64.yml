@@ -24,7 +24,10 @@ jobs:
 
     - name: cargo version
       run: cargo --version
-        
+
+    - name: add x86_64-pc-windows-msvc target
+      run: rustup target add x86_64-pc-windows-msvc
+
     - name: clone ouch repository
       run: git clone https://github.com/ouch-org/ouch
 
@@ -38,7 +41,7 @@ jobs:
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
     - name: build
-      run: cargo install ouch --git https://github.com/ouch-org/ouch
+      run: cargo install ouch --target x86_64-pc-windows-msvc --git https://github.com/ouch-org/ouch
 
     - name: archive ouch
       run: Compress-Archive -Path C:\Users\runneradmin\.cargo\bin\ouch.exe -DestinationPath C:\Users\runneradmin\ouch_x86_64_msvc_windows.zip
