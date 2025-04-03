@@ -28,9 +28,6 @@ jobs:
     - name: add x86_64-pc-windows-msvc target
       run: rustup target add x86_64-pc-windows-msvc
 
-    - name: clone ouch repository
-      run: git clone https://github.com/ouch-org/ouch
-
     - name: cache
       uses: actions/cache@v4
       with:
