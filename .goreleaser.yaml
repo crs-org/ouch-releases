@@ -6,38 +6,46 @@ before:
   hooks:
     - rustup default stable
     - cargo fetch --locked
+    # - cargo install --locked cargo-xwin
 
 env:
   - CROSS_CONTAINER_ENGINE=podman
   - CROSS_CONTAINER_OPTS=--platform=linux/amd64
+  # - XWIN_CROSS_COMPILER=clang
+  # - CXXFLAGS=-mssse3 -maes
 
 builds:
   - builder: rust
+    id: ouch
     command: build
     tool: cross
     targets:
       - x86_64-unknown-linux-gnu
       - x86_64-unknown-linux-musl
       - x86_64-apple-darwin
-      - x86_64-pc-windows-gnu
-      - aarch64-unknown-linux-gnu
-      - aarch64-unknown-linux-musl
       - aarch64-apple-darwin
+      - aarch64-unknown-linux-gnu
 
-# Creates archives for each target.
+  # - builder: rust
+  #   tool: cargo-xwin
+  #   command: build
+  #   flags: [--release]
+  #   id: win-msvc-builds
+  #   targets:
+  #     - x86_64-pc-windows-msvc
+  #     # - aarch64-pc-windows-msvc
+
 archives:
-  - formats: [ 'zip' ]
-    # this name template makes the OS and Arch compatible with the results of `uname`.
+  - id: ouch
+    files:
+      - none*
+    formats: [ 'zip' ]
+    allow_different_binary_count: true
     name_template: >-
-      {{ .ProjectName }}_
-      {{- title .Os }}_
-      {{- if eq .Arch "amd64" }}x86_64
-      {{- else if eq .Arch "386" }}i386
-      {{- else }}{{ .Arch }}{{ end }}
+      {{ .ProjectName }}_{{ .Target }}
 
-# Creates Darwin universal binaries.
 universal_binaries:
-  - replace: true
+  - replace: false
 
 source:
   enabled: false
