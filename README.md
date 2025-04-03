@@ -1,7 +1,7 @@
 # ouch releases for different platforms using GoReleaser
 
-[![windows-build-x86_64](https://github.com/crs-org/ouch-releases/actions/workflows/windows-build-x86_64.yml/badge.svg)](https://github.com/crs-org/ouch-releases/actions/workflows/windows-build-x86_64.yml)
-[![windows-build-aarch64](https://github.com/crs-org/ouch-releases/actions/workflows/windows-build-aarch64.yml/badge.svg)](https://github.com/crs-org/ouch-releases/actions/workflows/windows-build-aarch64.yml)
+[![win-x86_64](https://github.com/crs-org/ouch-releases/actions/workflows/win-x86_64.yml/badge.svg)](https://github.com/crs-org/ouch-releases/actions/workflows/win-x86_64.yml)
+[![win-aarch64](https://github.com/crs-org/ouch-releases/actions/workflows/win-aarch64.yml/badge.svg)](https://github.com/crs-org/ouch-releases/actions/workflows/win-aarch64.yml)
 
 https://github.com/ouch-org/ouch does not have a fresh release yet, so let's build it by yourself
 
