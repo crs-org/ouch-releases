@@ -1,7 +1,5 @@
 # ouch releases for different platforms using GoReleaser
 
-[![windows-build](https://github.com/crs-org/ouch-releases/actions/workflows/windows-build.yml/badge.svg)](https://github.com/crs-org/ouch-releases/actions/workflows/windows-build.yml)
-
 https://github.com/ouch-org/ouch does not have a fresh release yet, so let's build it by yourself
 
 ## installation
@@ -35,20 +33,30 @@ podman version
 cross --version
 ```
 
-4. build `ouch` from the source code:
+4. build an image with edge version of `x86_64-unknown-linux-gnu` target
 
 ```shell
-git clone https://github.com/ouch-org/ouch
+podman build --platform=linux/amd64 -f Dockerfile.aarch64-unknown-linux-gnu -t aarch64-unknown-linux-gnu:ouch .
 
-cp .goreleaser.yaml ouch/
-
-cd ouch
-
-# if on MacOS:
-rustup toolchain add stable-x86_64-unknown-linux-gnu --profile minimal --force-non-host
-
-# build
-goreleaser release --clean --snapshot
+podman build --platform=linux/amd64 -f Dockerfile.x86_64-unknown-linux-gnu -t x86_64-unknown-linux-gnu:ouch .
 ```
 
-Check `dist` folder out to see built binaries.
+5. build `ouch` from the source code:
+
+```shell
+# copy main branch of ouch
+git clone https://github.com/ouch-org/ouch
+cp .goreleaser.yaml ouch/
+cp Cross.toml ouch/
+cd ouch
+
+# build
+goreleaser build --clean --snapshot --id ouch
+
+# archive ouch by ouch (on Mac)
+./dist/ouch_aarch64-apple-darwin/ouch compress ./dist/ouch_x86_64-unknown-linux-gnu ./dist/ouch_x86_64-unknown-linux-gnu.zip
+./dist/ouch_aarch64-apple-darwin/ouch compress ./dist/ouch_x86_64-unknown-linux-musl ./dist/ouch_x86_64-unknown-linux-musl.zip
+./dist/ouch_aarch64-apple-darwin/ouch compress ./dist/ouch_aarch64-unknown-linux-gnu ./dist/ouch_aarch64-unknown-linux-gnu.zip
+./dist/ouch_aarch64-apple-darwin/ouch compress ./dist/ouch_x86_64-apple-darwin ./dist/ouch_x86_64-apple-darwin.zip
+./dist/ouch_aarch64-apple-darwin/ouch compress ./dist/ouch_aarch64-apple-darwin ./dist/ouch_aarch64-apple-darwin.zip
+```
