@@ -1,4 +1,4 @@
-name: windows-build-aarch64
+name: win-build-aarch64
 
 on:
   # push:
