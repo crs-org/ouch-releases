@@ -24,6 +24,9 @@ jobs:
 
     - name: cargo version
       run: cargo --version
+
+    - name: add aarch64-pc-windows-msvc target
+      run: rustup target add aarch64-pc-windows-msvc
         
     - name: clone ouch repository
       run: git clone https://github.com/ouch-org/ouch
