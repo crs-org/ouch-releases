@@ -40,8 +40,11 @@ jobs:
     - name: build
       run: cargo install ouch --git https://github.com/ouch-org/ouch
 
+    - name: archive ouch
+      run: C:\Users\runneradmin\.cargo\bin\ouch.exe compress C:\Users\runneradmin\.cargo\bin\ouch.exe C:\Users\runneradmin\ouch_x86_64_msvc_windows.zip
+
     - name: upload release artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ouch_Windows_x86_64.exe
-        path: C:\Users\runneradmin\.cargo\bin\ouch.exe
+        name: ouch_x86_64_msvc_windows.zip
+        path: C:\Users\runneradmin\ouch_x86_64_msvc_windows.zip
