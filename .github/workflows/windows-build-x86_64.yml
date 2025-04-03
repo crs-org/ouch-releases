@@ -1,4 +1,4 @@
-name: windows-build
+name: windows-build-x86_64
 
 on:
   # push:
@@ -41,7 +41,7 @@ jobs:
       run: cargo install ouch --git https://github.com/ouch-org/ouch
 
     - name: archive ouch
-      run: C:\Users\runneradmin\.cargo\bin\ouch.exe compress C:\Users\runneradmin\.cargo\bin\ouch.exe C:\Users\runneradmin\ouch_x86_64_msvc_windows.zip
+      run: Compress-Archive -Path C:\Users\runneradmin\.cargo\bin\ouch.exe -DestinationPath C:\Users\runneradmin\ouch_x86_64_msvc_windows.zip
 
     - name: upload release artifact
       uses: actions/upload-artifact@v4
