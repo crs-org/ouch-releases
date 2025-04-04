@@ -7,7 +7,7 @@ https://github.com/ouch-org/ouch does not have a fresh release yet, so let's bui
 
 ## installation
 
-0. install rust using `rustup`: https://rustup.sh
+0. install rust using `rustup`: https://rustup.rs
 
 ```shell
 rustc --version
